@@ -19,7 +19,7 @@ class Parent extends React.Component {
   render() {
     return(
       <div>
-        <App />
+        <App mounted={this.state.showChild} />
         <button onClick={this.buttonClick}>
           {this.state.showChild ? "Unmount" : "Mount"}
         </button>

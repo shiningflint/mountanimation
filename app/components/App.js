@@ -3,14 +3,33 @@ import React from "react";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.mountStyle = this.mountStyle.bind(this);
     this.state = {
       show: true,
       style: {
-        fontSize: 60,
         opacity: 0,
-        transition: 'all 2s ease',
+        transition: 'all 1s ease',
       }
     }
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      show: newProps.mounted
+    });
+  }
+
+  mountStyle() {
+    this.setState({
+      style: {
+        opacity: 1,
+        transition: 'all 1s ease',
+      }
+    });
+  }
+
+  componentDidMount() {
+    setTimeout(this.mountStyle, 10);
   }
 
   render() {
