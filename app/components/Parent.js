@@ -21,7 +21,7 @@ class Parent extends React.Component {
       <div>
         <App mounted={this.state.showChild} />
         <button onClick={this.buttonClick}>
-          {this.state.showChild ? "Unmount" : "Mount"}
+          {this.state.showChild ? "Hide" : "Show"}
         </button>
       </div>
     );

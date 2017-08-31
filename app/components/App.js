@@ -8,12 +8,7 @@ class App extends React.Component {
     this.transitionEnd = this.transitionEnd.bind(this);
     this.state = {
       show: true,
-      style: {
-        opacity: 0,
-        maxHeight: 0,
-        margin: 0,
-        transition: 'all 1s ease',
-      }
+      active: ""
     }
   }
 
@@ -29,25 +24,11 @@ class App extends React.Component {
   }
 
   unMountStyle() {
-    this.setState({
-      style: {
-        opacity: 0,
-        maxHeight: 0,
-        margin: 0,
-        transition: 'all 1s ease',
-      }
-    })
+    this.setState({active: ""})
   }
 
   mountStyle() {
-    this.setState({
-      style: {
-        opacity: 1,
-        maxHeight: 200,
-        margin: "21px 0",
-        transition: 'all 1s ease',
-      }
-    });
+    this.setState({active: " active"})
   }
 
   transitionEnd() {
@@ -65,11 +46,10 @@ class App extends React.Component {
   render() {
     return(
       this.state.show &&
-      <h1 className="title"
-        style={this.state.style}
+      <div className={"title"+this.state.active}
         onTransitionEnd={this.transitionEnd}>
-        Hello!
-      </h1>
+        <h1>Hello!</h1>
+      </div>
     )
   }
 }

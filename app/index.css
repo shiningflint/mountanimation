@@ -1,0 +1,10 @@
+.title {
+  opacity: 0;
+  max-height: 0;
+  transition: all 1s;
+  overflow: hidden;
+}
+.title.active {
+  opacity: 1;
+  max-height: 96px;
+}
