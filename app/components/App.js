@@ -13,14 +13,12 @@ class App extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (!newProps.mounted) {
-      return this.unMountStyle();
-    } else {
-      this.setState({
-        show: true
-      });
-      setTimeout(this.mountStyle, 10);
-    }
+    if (!newProps.mounted)
+      return this.unMountStyle()
+    this.setState({
+      show: true
+    });
+    setTimeout(this.mountStyle, 10);
   }
 
   unMountStyle() {
